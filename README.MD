@@ -1,5 +1,5 @@
 # this is a react falsework demo
-> react (v16) + redux + react-router v4 + redux-thunk + react-hot-loader + es6 + webpack3 
+> react (v16) + redux + react-router v4 + redux-thunk + react-hot-loader + es6 + webpack3 + antd
 
 
 
