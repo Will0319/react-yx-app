@@ -25,6 +25,7 @@ export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Home));
 
 ## 文件目录
 
+```
 .
 ├── README.MD  
 ├── mock  
@@ -36,3 +37,4 @@ export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Home));
 ├── webpack.common.config.js  公共配置
 ├── webpack.config.js   生产环境配置
 └── webpack.dev.config.js  开发环境配置
+```
