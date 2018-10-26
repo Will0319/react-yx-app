@@ -4,11 +4,13 @@ const webpack = require('webpack');
 const commonConfig = require('./webpack.common.config.js');
 
 const devConfig = {
+    // 调试模式
     devtool: 'inline-source-map',
+    // 入口
     entry: {
         app: [
             'babel-polyfill',
-            'react-hot-loader/patch',
+            'react-hot-loader/patch',  //热加载的文档   https://gaearon.github.io/react-hot-loader/getstarted/
             path.join(__dirname, 'src/index.js')
         ]
     },
@@ -22,9 +24,13 @@ const devConfig = {
             use: ["style-loader", "css-loader", "postcss-loader"]
         }]
     },
+    // 轻量级的服务器 详情可参考 https://webpack.docschina.org/configuration/dev-server
     devServer: {
+        // 运行端口
         port: 3000,
+        // URL的根目录。如果不设定的话，默认指向项目根目录
         contentBase: path.join(__dirname, './dist'),
+        // 所有404定位到index.html
         historyApiFallback: true,
         open:true,
         host: 'localhost',
