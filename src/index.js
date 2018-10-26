@@ -3,8 +3,16 @@ import ReactDom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import store from './redux/store';
-import {BrowserRouter as Router} from 'react-router-dom';
+// import {BrowserRouter as Router} from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import App from 'components/App/App';
+
+const history = createHistory();
+// 订阅state改变
+store.subscribe(() => {
+    console.log(store.getState());
+});
 
 renderWithHotReload(App);
 
@@ -19,9 +27,9 @@ function renderWithHotReload(RootElement) {
     ReactDom.render(
         <AppContainer>
             <Provider store={store}>
-                <Router>
+                <ConnectedRouter history={history}>
                     <RootElement/>
-                </Router>
+                </ConnectedRouter>
             </Provider>
         </AppContainer>,
         document.getElementById('app')

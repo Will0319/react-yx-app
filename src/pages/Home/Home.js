@@ -3,7 +3,7 @@ import {Button} from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import './index.css';
-import {setState} from '../../redux/actions/home';
+import {setState} from 'actions/home';
 import {hot} from 'react-hot-loader';
 import { withRouter,Link } from 'react-router-dom';
 
@@ -28,6 +28,10 @@ class Home extends Component {
         })
     }
 
+    getInfo=()=>{
+        this.props.getIssuesInfo({})
+    }
+
     render() {
         const { reduxState} = this.props;
         return (
@@ -37,6 +41,7 @@ class Home extends Component {
                 当前Redux计数：{reduxState}<br/>
                 <Link to='/page1'>Link to page1</Link>
                 <p onClick={()=>this.toPage()}>withRouter to page1</p>
+                <Button onClick={()=>this.getInfo()}>点击异步获取，并存在redux</Button>
                 <Button onClick={() => this.handleClick()}>自增</Button>
             </div>
         )

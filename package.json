@@ -1,7 +1,7 @@
 {
   "name": "react-yx-app",
   "version": "1.0.0",
-  "description": "react全家桶",
+  "description": "自用脚手架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,7 @@
     "es6",
     "react-yx-app"
   ],
-  "author": "brickspert",
+  "author": "Will0319",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -58,7 +58,7 @@
     "react-dom": "^16.6.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.8",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"

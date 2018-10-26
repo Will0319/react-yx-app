@@ -34,7 +34,8 @@ commonConfig = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: path.join(__dirname, 'src/index.html')
+            template: path.join(__dirname, 'public/index.html'),
+            favicon: 'public/moon.ico',
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
