@@ -5,6 +5,7 @@ const webpack = require('webpack');
 commonConfig = {
     entry: {
         app: [
+            // 有关Babel可参考阮大的博客 http://www.ruanyifeng.com/blog/2016/01/babel.html
             "babel-polyfill",
             path.join(__dirname, 'src/index.js')
         ],
@@ -18,6 +19,8 @@ commonConfig = {
     },
     module: {
         rules: [{
+            // src文件夹下面的以.js结尾的文件，要使用babel解析
+            // cacheDirectory是用来缓存编译结果，下次编译加速
             test: /\.js$/,
             use: ['babel-loader?cacheDirectory=true'],
             include: path.join(__dirname, 'src')
@@ -62,12 +65,18 @@ commonConfig = {
     ],
 
     resolve: {
+        // 别名配置，不需要在文件中再使用很长的绝对路径啦~
         alias: {
+            // 页面
             pages: path.join(__dirname, 'src/pages'),
+            // 公用组件
             components: path.join(__dirname, 'src/components'),
+            // 路由
             router: path.join(__dirname, 'src/router'),
+            // redux
             actions: path.join(__dirname, 'src/redux/actions'),
             reducers: path.join(__dirname, 'src/redux/reducers'),
+            // mock
             mock: path.join(__dirname, 'mock')
         }
     }
