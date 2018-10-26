@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import style from './Page1.css';
 
-import image from './images/brickpsert.jpg';
+import image from './images/img.jpg';
 
 export default class Page1 extends Component {
     render() {

@@ -20,7 +20,7 @@ const devConfig = {
     module: {
         rules: [{
             test: /\.css$/,
-            use: ["style-loader", "css-loader?modules&localIdentName=[local]-[hash:base64:5]", "postcss-loader"]
+            use: ["style-loader", "css-loader", "postcss-loader"]
         }]
     },
     devServer: {
@@ -32,7 +32,15 @@ const devConfig = {
         // proxy: {
         //     "/api/*": "http://localhost:8090/$1"
         // }
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            __DEV__: false
+        }),
+        // 很多库的内部，有process.NODE_ENV的判断语句，
+        // 改为production。最直观的就是没有所有的debug相关的东西，体积会减少很多
+    ],
 };
 
 module.exports = merge({

@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import {Button} from 'antd';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import './index.css';
+import {setState} from '../../redux/actions/home';
 import {hot} from 'react-hot-loader';
 
 class Home extends Component {
@@ -9,21 +14,37 @@ class Home extends Component {
         }
     }
 
-    _handleClick() {
+    handleClick() {
         this.setState({
             count: ++this.state.count
         });
+        const { reduxState} = this.props;
+        this.props.setState({ reduxState: reduxState+2})
     }
 
     render() {
+        const { reduxState} = this.props;
         return (
-            <div>
+            <div className='color'>
                 this is home~<br/>
                 当前计数：{this.state.count}<br/>
-                <button onClick={() => this._handleClick()}>自增</button>
+                当前Redux计数：{reduxState}<br/>
+                <Button onClick={() => this.handleClick()}>自增</Button>
             </div>
         )
     }
 }
 
-export default hot(module)(Home);
+
+function mapStateToProps(state) {
+    return {
+        reduxState: state.Home.reduxState,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setState: bindActionCreators(setState, dispatch),
+    }
+}
+export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Home));

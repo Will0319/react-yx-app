@@ -8,7 +8,7 @@ commonConfig = {
             "babel-polyfill",
             path.join(__dirname, 'src/index.js')
         ],
-        vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
+        vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux','antd']
     },
     output: {
         path: path.join(__dirname, './dist'),
