@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 import './index.css';
 import {setState} from '../../redux/actions/home';
 import {hot} from 'react-hot-loader';
+import { withRouter,Link } from 'react-router-dom';
 
+@withRouter
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0
-        }
+
+    state = {
+        count: 0
     }
 
-    handleClick() {
+    handleClick=()=> {
         this.setState({
             count: ++this.state.count
         });
@@ -22,13 +22,21 @@ class Home extends Component {
         this.props.setState({ reduxState: reduxState+2})
     }
 
+    toPage=()=>{
+        this.props.history.push({
+            pathname:'/page1'
+        })
+    }
+
     render() {
         const { reduxState} = this.props;
         return (
-            <div className='color'>
+            <div>
                 this is home~<br/>
                 当前计数：{this.state.count}<br/>
                 当前Redux计数：{reduxState}<br/>
+                <Link to='/page1'>Link to page1</Link>
+                <p onClick={()=>this.toPage()}>withRouter to page1</p>
                 <Button onClick={() => this.handleClick()}>自增</Button>
             </div>
         )
