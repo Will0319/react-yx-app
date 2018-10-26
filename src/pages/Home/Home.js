@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button} from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import './index.css';
+import './index.less';
 import {setState} from 'actions/home';
 import {hot} from 'react-hot-loader';
 import { withRouter,Link } from 'react-router-dom';
@@ -40,7 +40,7 @@ class Home extends Component {
                 当前计数：{this.state.count}<br/>
                 当前Redux计数：{reduxState}<br/>
                 <Link to='/page1'>Link to page1</Link>
-                <p onClick={()=>this.toPage()}>withRouter to page1</p>
+                <p className="color" onClick={()=>this.toPage()}>withRouter to page1</p>
                 <Button onClick={()=>this.getInfo()}>点击异步获取，并存在redux</Button>
                 <Button onClick={() => this.handleClick()}>自增</Button>
             </div>

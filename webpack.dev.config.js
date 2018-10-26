@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
-
 const commonConfig = require('./webpack.common.config.js');
 
 const devConfig = {
@@ -28,7 +27,7 @@ const devConfig = {
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         open:true,
-        host: '127.0.0.1',
+        host: 'localhost',
         // proxy: {
         //     "/api/*": "http://localhost:8090/$1"
         // }
