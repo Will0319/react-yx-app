@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 
 class Bundle extends Component {
     state = {
@@ -8,6 +11,7 @@ class Bundle extends Component {
 
     componentWillMount() {
         this.load(this.props)
+        NProgress.start();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -29,6 +33,9 @@ class Bundle extends Component {
     }
 
     render() {
+        if (this.state.mod){
+        NProgress.done();
+        }
         return this.props.children(this.state.mod)
     }
 }
