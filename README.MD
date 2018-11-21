@@ -38,3 +38,5 @@ export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Home));
 ├── webpack.config.js   生产环境配置
 └── webpack.dev.config.js  开发环境配置
 ```
+
+> 本脚手架还未投入生产环境，慎用，且不定期维护。
