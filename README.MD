@@ -39,4 +39,4 @@ export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(Home));
 └── webpack.dev.config.js  开发环境配置
 ```
 
-> 本脚手架还未投入生产环境，慎用，且不定期维护。
+> <span style="color:red">本脚手架还未投入生产环境，慎用，且不定期维护。</span>
